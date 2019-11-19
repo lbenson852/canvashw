@@ -70,15 +70,10 @@
         }
       });
       function colorpicker(newcolor) {
-        console.log("color picked: ", newColor);
+        console.log("color picked: ", newcolor);
         color = newcolor;
       }
     </script>
-    <input
-      type="color"
-      id="picker"
-      value="#FFFFFF"
-      onchange="colorpicker(value)"
-    />
+    <input type="color" value="#FFFFFF" onchange="colorpicker(value)" />
   </body>
 </html>
