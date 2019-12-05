@@ -15,8 +15,9 @@
   <body>
     <!-- DO NOT MODIFY THIS HTML -->
     <canvas id="myCanvas" width="350" height="500"></canvas>
+
     <script>
-      var canvas = document.querySelector("canvas");
+      var canvas = document.querySelector("#myCanvas");
       var ctx = canvas.getContext("2d");
       hview = document.documentElement.clientHeight;
       wview = document.documentElement.clientWidth;
@@ -34,7 +35,7 @@
         if (isDrawing == true) {
           ctx.beginPath();
           ctx.fillStyle = color;
-          ctx.arc(posx - 10, posy - 10, radius, 0, 2 * Math.PI);
+          ctx.arc(posx, posy, radius, 0, 2 * Math.PI);
           ctx.fill();
         }
       }
@@ -69,11 +70,16 @@
             break;
         }
       });
-      function colorpicker(newcolor) {
-        console.log("color picked: ", newcolor);
-        color = newcolor;
+    </script>
+    <input onchange="changeColor()" type="color" id="picker" />
+    <script>
+      var canvas = document.querySelector("#myCanvas");
+      var ctx = canvas.getContext("2d");
+      var colorPicker = document.querySelector("#picker");
+      function changeColor() {
+        console.log("Change color to: " + colorPicker.value);
+        color = colorPicker.value;
       }
     </script>
-    <input type="color" value="#FFFFFF" onchange="colorpicker(value)" />
   </body>
 </html>
